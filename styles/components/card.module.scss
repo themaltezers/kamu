@@ -1,0 +1,11 @@
+.card {
+    background: black;
+    color: white;
+    display: inline-block; // très important pour que la card ne se coupe pas
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    height: 400px;
+    // plus de height fixe
+}

@@ -1,0 +1,74 @@
+@use "reset.scss";
+
+body {
+    @include mixins.full__vp;
+
+    @media (min-width: 768px) {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+    @media (min-width: 768px) {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 36px;
+        line-height: 44px;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 28px;
+    @media (min-width: 768px) {
+        font-size: 34px;
+        line-height: 32px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 24px;
+    @media (min-width: 768px) {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 22px;
+        line-height: 28px;
+    }
+}
+p {
+    font-size: 14px;
+    list-style: 20px;
+    @media (min-width: 768px) {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

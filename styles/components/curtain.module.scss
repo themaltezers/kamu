@@ -1,0 +1,21 @@
+.curtain {
+    position: fixed;
+    inset: 0;
+    background: var(--text-active); // ou noir
+    display: none; // <- caché par défaut
+    opacity: 0;
+    pointer-events: none; // ne bloque pas quand inactif
+    z-index: 9998; // sous l'overlay œil (9999)
+    will-change: transform, opacity;
+    contain: layout paint;
+}
+
+.curtain__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-active);
+    font-size: 32px;
+}

@@ -1,0 +1,260 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model asset {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  url        String
+  type       String?
+  meta       Json?
+  product_id String?  @db.Uuid
+  product    product? @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model audit_log {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  actor      String?
+  action     String
+  meta       Json?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model category {
+  id             String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String
+  slug           String     @unique
+  parent_id      String?    @db.Uuid
+  category       category?  @relation("categoryTocategory", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  other_category category[] @relation("categoryTocategory")
+  product        product[]
+
+  @@index([slug], map: "idx_category_slug")
+}
+
+model coupon {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  code        String      @unique
+  type        coupon_type
+  value       Int
+  valid_from  DateTime?   @db.Timestamptz(6)
+  valid_to    DateTime?   @db.Timestamptz(6)
+  usage_limit Int?
+  active      Boolean?    @default(true)
+}
+
+model dashboard_access {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  url_secret       String    @unique
+  access_code_hash String
+  created_at       DateTime? @default(now()) @db.Timestamptz(6)
+  expires_at       DateTime? @db.Timestamptz(6)
+}
+
+model order {
+  id                       String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  order_number             String        @unique
+  email                    String
+  first_name               String
+  last_name                String
+  phone                    String
+  shipping_address         Json
+  billing_address          Json?
+  shipping_method_id       String?       @db.Uuid
+  sub_total_cents          Int
+  tax_cents                Int
+  total_cents              Int
+  currency                 String?       @default("EUR")
+  status                   order_status? @default(PENDING)
+  stripe_session_id        String?
+  stripe_payment_intent_id String?
+  created_at               DateTime?     @default(now()) @db.Timestamptz(6)
+  updated_at               DateTime?     @default(now()) @db.Timestamptz(6)
+  order_item               order_item[]
+  payment                  payment[]
+  tracking                 tracking?
+
+  @@index([email], map: "idx_order_email")
+}
+
+model order_item {
+  id                 String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  order_id           String           @db.Uuid
+  product_id         String           @db.Uuid
+  product_variant_id String?          @db.Uuid
+  quantity           Int
+  unit_price_cents   Int
+  total_price_cents  Int
+  order              order            @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product            product          @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  product_variant    product_variant? @relation(fields: [product_variant_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model payment {
+  id                       String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  order_id                 String    @db.Uuid
+  stripe_session_id        String?
+  stripe_payment_intent_id String?
+  status                   String
+  amount_cents             Int
+  currency                 String
+  raw_response             Json?
+  created_at               DateTime? @default(now()) @db.Timestamptz(6)
+  order                    order     @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model product {
+  id                   String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                 String
+  slug                 String        @unique
+  short_description    String?
+  long_description_mdx String?
+  sku                  String?
+  type                 product_type? @default(PHYSICAL)
+
+  // ✅ PRIX
+  price_cents       Int
+  promo_price_cents Int?
+
+  // ✅ COULEURS (hex)
+  colors String[]
+
+  // ✅ IMAGES
+  polaroid_url   String?
+  main_image_url String?
+
+  // ✅ META
+  category_id String?   @db.Uuid
+  tags        String[]
+  published   Boolean?  @default(false)
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime? @default(now()) @db.Timestamptz(6)
+
+  // 🔗 RELATIONS
+  asset           asset[]
+  order_item      order_item[]
+  category        category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  product_feature product_feature[]
+  product_image   product_image[]
+  product_variant product_variant[]
+
+  @@index([slug], map: "idx_product_slug")
+}
+
+model product_feature {
+  id              String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product_id      String           @db.Uuid
+  variant_id      String?          @db.Uuid
+  label           String
+  value           String
+  unit            String?
+  ordering        Int?             @default(0)
+  created_at      DateTime?        @default(now()) @db.Timestamptz(6)
+  product         product          @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product_variant product_variant? @relation(fields: [variant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([product_id], map: "idx_feature_product")
+  @@index([variant_id], map: "idx_feature_variant")
+}
+
+model product_image {
+  id              String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product_id      String           @db.Uuid
+  variant_id      String?          @db.Uuid
+  url             String
+  type            image_type?      @default(GALLERY)
+  ordering        Int?             @default(0)
+  alt_text        String?
+  product         product          @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product_variant product_variant? @relation(fields: [variant_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([product_id], map: "idx_image_product_id")
+}
+
+model product_variant {
+  id                String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product_id        String            @db.Uuid
+  title             String
+  color             String?
+  dimensions        Json?
+  material          String?
+  price_cents       Int
+  promo_price_cents Int?
+  stock             Int?              @default(0)
+  weight_grams      Int?
+  sku               String?
+  is_default        Boolean?          @default(false)
+  created_at        DateTime?         @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime?         @default(now()) @db.Timestamptz(6)
+  order_item        order_item[]
+  product_feature   product_feature[]
+  product_image     product_image[]
+  product           product           @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([product_id], map: "idx_variant_product_id")
+}
+
+model shipping_method {
+  id             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String
+  price_cents    Int
+  estimated_days Int?
+  carrier_code   String?
+}
+
+model tracking {
+  id                   String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  order_id             String           @unique @db.Uuid
+  tracking_code        String
+  carrier              String?
+  carrier_tracking_url String?
+  status               tracking_status? @default(INFO_RECEIVED)
+  public_tracking_slug String           @unique
+  last_event_at        DateTime?        @db.Timestamptz(6)
+  events               Json?
+  created_at           DateTime?        @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime?        @default(now()) @db.Timestamptz(6)
+  order                order            @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([public_tracking_slug], map: "idx_tracking_public_slug")
+}
+
+enum coupon_type {
+  PERCENT
+  FIXED
+}
+
+enum image_type {
+  GALLERY
+  DETAIL
+  MANNEQUIN
+  PACKSHOT
+  OTHER
+}
+
+enum order_status {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum product_type {
+  PHYSICAL
+  DIGITAL
+}
+
+enum tracking_status {
+  INFO_RECEIVED
+  IN_TRANSIT
+  OUT_FOR_DELIVERY
+  DELIVERED
+  RETURNED
+}

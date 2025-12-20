@@ -1,0 +1,62 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    @include mixins.flex__center;
+    z-index: 1000;
+    &__content {
+        position: absolute;
+        bottom: 0;
+        background: white;
+        @include mixins.border-radius-top(0.5rem);
+        height: 100%;
+        width: 100%;
+        display: grid;
+        overflow-y: scroll;
+        gap: 1rem;
+    }
+    &__close {
+        text-align: center;
+        &__container {
+            @include mixins.flex__center;
+            padding: 1em 0;
+            z-index: 1000;
+            position: sticky;
+            top: 0px;
+            margin-bottom: 1rem;
+        }
+        &__btn {
+            cursor: pointer;
+        }
+    }
+}
+
+.modal__oeuvre {
+    &__content,
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    &__content {
+        & img {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+@media only screen and (min-width: 760px) {
+    .modal__oeuvre {
+        &__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
