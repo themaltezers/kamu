@@ -391,6 +391,13 @@ export type Enumimage_typeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel> | $Enums.image_type | null
 }
 
+export type Enumimage_sizeFilter<$PrismaModel = never> = {
+  equals?: $Enums.image_size | Prisma.Enumimage_sizeFieldRefInput<$PrismaModel>
+  in?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel> | $Enums.image_size
+}
+
 export type Enumimage_typeNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.image_type | Prisma.Enumimage_typeFieldRefInput<$PrismaModel> | null
   in?: $Enums.image_type[] | Prisma.ListEnumimage_typeFieldRefInput<$PrismaModel> | null
@@ -399,6 +406,16 @@ export type Enumimage_typeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel>
+}
+
+export type Enumimage_sizeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.image_size | Prisma.Enumimage_sizeFieldRefInput<$PrismaModel>
+  in?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumimage_sizeWithAggregatesFilter<$PrismaModel> | $Enums.image_size
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel>
 }
 
 export type Enumtracking_statusNullableFilter<$PrismaModel = never> = {
@@ -750,6 +767,13 @@ export type NestedEnumimage_typeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel> | $Enums.image_type | null
 }
 
+export type NestedEnumimage_sizeFilter<$PrismaModel = never> = {
+  equals?: $Enums.image_size | Prisma.Enumimage_sizeFieldRefInput<$PrismaModel>
+  in?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel> | $Enums.image_size
+}
+
 export type NestedEnumimage_typeNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.image_type | Prisma.Enumimage_typeFieldRefInput<$PrismaModel> | null
   in?: $Enums.image_type[] | Prisma.ListEnumimage_typeFieldRefInput<$PrismaModel> | null
@@ -758,6 +782,16 @@ export type NestedEnumimage_typeNullableWithAggregatesFilter<$PrismaModel = neve
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumimage_typeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumimage_sizeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.image_size | Prisma.Enumimage_sizeFieldRefInput<$PrismaModel>
+  in?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.image_size[] | Prisma.ListEnumimage_sizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumimage_sizeWithAggregatesFilter<$PrismaModel> | $Enums.image_size
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumimage_sizeFilter<$PrismaModel>
 }
 
 export type NestedEnumtracking_statusNullableFilter<$PrismaModel = never> = {

@@ -9,6 +9,14 @@
 * 🟢 You can import this file directly.
 */
 
+export const image_size = {
+  SMALL: 'SMALL',
+  LARGE: 'LARGE'
+} as const
+
+export type image_size = (typeof image_size)[keyof typeof image_size]
+
+
 export const coupon_type = {
   PERCENT: 'PERCENT',
   FIXED: 'FIXED'

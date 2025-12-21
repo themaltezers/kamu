@@ -42,6 +42,7 @@ export type Product_imageMinAggregateOutputType = {
   type: $Enums.image_type | null
   ordering: number | null
   alt_text: string | null
+  size: $Enums.image_size | null
 }
 
 export type Product_imageMaxAggregateOutputType = {
@@ -52,6 +53,7 @@ export type Product_imageMaxAggregateOutputType = {
   type: $Enums.image_type | null
   ordering: number | null
   alt_text: string | null
+  size: $Enums.image_size | null
 }
 
 export type Product_imageCountAggregateOutputType = {
@@ -62,6 +64,7 @@ export type Product_imageCountAggregateOutputType = {
   type: number
   ordering: number
   alt_text: number
+  size: number
   _all: number
 }
 
@@ -82,6 +85,7 @@ export type Product_imageMinAggregateInputType = {
   type?: true
   ordering?: true
   alt_text?: true
+  size?: true
 }
 
 export type Product_imageMaxAggregateInputType = {
@@ -92,6 +96,7 @@ export type Product_imageMaxAggregateInputType = {
   type?: true
   ordering?: true
   alt_text?: true
+  size?: true
 }
 
 export type Product_imageCountAggregateInputType = {
@@ -102,6 +107,7 @@ export type Product_imageCountAggregateInputType = {
   type?: true
   ordering?: true
   alt_text?: true
+  size?: true
   _all?: true
 }
 
@@ -199,6 +205,7 @@ export type Product_imageGroupByOutputType = {
   type: $Enums.image_type | null
   ordering: number | null
   alt_text: string | null
+  size: $Enums.image_size
   _count: Product_imageCountAggregateOutputType | null
   _avg: Product_imageAvgAggregateOutputType | null
   _sum: Product_imageSumAggregateOutputType | null
@@ -232,6 +239,7 @@ export type product_imageWhereInput = {
   type?: Prisma.Enumimage_typeNullableFilter<"product_image"> | $Enums.image_type | null
   ordering?: Prisma.IntNullableFilter<"product_image"> | number | null
   alt_text?: Prisma.StringNullableFilter<"product_image"> | string | null
+  size?: Prisma.Enumimage_sizeFilter<"product_image"> | $Enums.image_size
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.productWhereInput>
   product_variant?: Prisma.XOR<Prisma.Product_variantNullableScalarRelationFilter, Prisma.product_variantWhereInput> | null
 }
@@ -244,6 +252,7 @@ export type product_imageOrderByWithRelationInput = {
   type?: Prisma.SortOrderInput | Prisma.SortOrder
   ordering?: Prisma.SortOrderInput | Prisma.SortOrder
   alt_text?: Prisma.SortOrderInput | Prisma.SortOrder
+  size?: Prisma.SortOrder
   product?: Prisma.productOrderByWithRelationInput
   product_variant?: Prisma.product_variantOrderByWithRelationInput
 }
@@ -259,6 +268,7 @@ export type product_imageWhereUniqueInput = Prisma.AtLeast<{
   type?: Prisma.Enumimage_typeNullableFilter<"product_image"> | $Enums.image_type | null
   ordering?: Prisma.IntNullableFilter<"product_image"> | number | null
   alt_text?: Prisma.StringNullableFilter<"product_image"> | string | null
+  size?: Prisma.Enumimage_sizeFilter<"product_image"> | $Enums.image_size
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.productWhereInput>
   product_variant?: Prisma.XOR<Prisma.Product_variantNullableScalarRelationFilter, Prisma.product_variantWhereInput> | null
 }, "id">
@@ -271,6 +281,7 @@ export type product_imageOrderByWithAggregationInput = {
   type?: Prisma.SortOrderInput | Prisma.SortOrder
   ordering?: Prisma.SortOrderInput | Prisma.SortOrder
   alt_text?: Prisma.SortOrderInput | Prisma.SortOrder
+  size?: Prisma.SortOrder
   _count?: Prisma.product_imageCountOrderByAggregateInput
   _avg?: Prisma.product_imageAvgOrderByAggregateInput
   _max?: Prisma.product_imageMaxOrderByAggregateInput
@@ -289,6 +300,7 @@ export type product_imageScalarWhereWithAggregatesInput = {
   type?: Prisma.Enumimage_typeNullableWithAggregatesFilter<"product_image"> | $Enums.image_type | null
   ordering?: Prisma.IntNullableWithAggregatesFilter<"product_image"> | number | null
   alt_text?: Prisma.StringNullableWithAggregatesFilter<"product_image"> | string | null
+  size?: Prisma.Enumimage_sizeWithAggregatesFilter<"product_image"> | $Enums.image_size
 }
 
 export type product_imageCreateInput = {
@@ -297,6 +309,7 @@ export type product_imageCreateInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
   product: Prisma.productCreateNestedOneWithoutProduct_imageInput
   product_variant?: Prisma.product_variantCreateNestedOneWithoutProduct_imageInput
 }
@@ -309,6 +322,7 @@ export type product_imageUncheckedCreateInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageUpdateInput = {
@@ -317,6 +331,7 @@ export type product_imageUpdateInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
   product?: Prisma.productUpdateOneRequiredWithoutProduct_imageNestedInput
   product_variant?: Prisma.product_variantUpdateOneWithoutProduct_imageNestedInput
 }
@@ -329,6 +344,7 @@ export type product_imageUncheckedUpdateInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type product_imageCreateManyInput = {
@@ -339,6 +355,7 @@ export type product_imageCreateManyInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageUpdateManyMutationInput = {
@@ -347,6 +364,7 @@ export type product_imageUpdateManyMutationInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type product_imageUncheckedUpdateManyInput = {
@@ -357,6 +375,7 @@ export type product_imageUncheckedUpdateManyInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type Product_imageListRelationFilter = {
@@ -377,6 +396,7 @@ export type product_imageCountOrderByAggregateInput = {
   type?: Prisma.SortOrder
   ordering?: Prisma.SortOrder
   alt_text?: Prisma.SortOrder
+  size?: Prisma.SortOrder
 }
 
 export type product_imageAvgOrderByAggregateInput = {
@@ -391,6 +411,7 @@ export type product_imageMaxOrderByAggregateInput = {
   type?: Prisma.SortOrder
   ordering?: Prisma.SortOrder
   alt_text?: Prisma.SortOrder
+  size?: Prisma.SortOrder
 }
 
 export type product_imageMinOrderByAggregateInput = {
@@ -401,6 +422,7 @@ export type product_imageMinOrderByAggregateInput = {
   type?: Prisma.SortOrder
   ordering?: Prisma.SortOrder
   alt_text?: Prisma.SortOrder
+  size?: Prisma.SortOrder
 }
 
 export type product_imageSumOrderByAggregateInput = {
@@ -453,6 +475,10 @@ export type NullableEnumimage_typeFieldUpdateOperationsInput = {
   set?: $Enums.image_type | null
 }
 
+export type Enumimage_sizeFieldUpdateOperationsInput = {
+  set?: $Enums.image_size
+}
+
 export type product_imageCreateNestedManyWithoutProduct_variantInput = {
   create?: Prisma.XOR<Prisma.product_imageCreateWithoutProduct_variantInput, Prisma.product_imageUncheckedCreateWithoutProduct_variantInput> | Prisma.product_imageCreateWithoutProduct_variantInput[] | Prisma.product_imageUncheckedCreateWithoutProduct_variantInput[]
   connectOrCreate?: Prisma.product_imageCreateOrConnectWithoutProduct_variantInput | Prisma.product_imageCreateOrConnectWithoutProduct_variantInput[]
@@ -501,6 +527,7 @@ export type product_imageCreateWithoutProductInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
   product_variant?: Prisma.product_variantCreateNestedOneWithoutProduct_imageInput
 }
 
@@ -511,6 +538,7 @@ export type product_imageUncheckedCreateWithoutProductInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageCreateOrConnectWithoutProductInput = {
@@ -550,6 +578,7 @@ export type product_imageScalarWhereInput = {
   type?: Prisma.Enumimage_typeNullableFilter<"product_image"> | $Enums.image_type | null
   ordering?: Prisma.IntNullableFilter<"product_image"> | number | null
   alt_text?: Prisma.StringNullableFilter<"product_image"> | string | null
+  size?: Prisma.Enumimage_sizeFilter<"product_image"> | $Enums.image_size
 }
 
 export type product_imageCreateWithoutProduct_variantInput = {
@@ -558,6 +587,7 @@ export type product_imageCreateWithoutProduct_variantInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
   product: Prisma.productCreateNestedOneWithoutProduct_imageInput
 }
 
@@ -568,6 +598,7 @@ export type product_imageUncheckedCreateWithoutProduct_variantInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageCreateOrConnectWithoutProduct_variantInput = {
@@ -603,6 +634,7 @@ export type product_imageCreateManyProductInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageUpdateWithoutProductInput = {
@@ -611,6 +643,7 @@ export type product_imageUpdateWithoutProductInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
   product_variant?: Prisma.product_variantUpdateOneWithoutProduct_imageNestedInput
 }
 
@@ -621,6 +654,7 @@ export type product_imageUncheckedUpdateWithoutProductInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type product_imageUncheckedUpdateManyWithoutProductInput = {
@@ -630,6 +664,7 @@ export type product_imageUncheckedUpdateManyWithoutProductInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type product_imageCreateManyProduct_variantInput = {
@@ -639,6 +674,7 @@ export type product_imageCreateManyProduct_variantInput = {
   type?: $Enums.image_type | null
   ordering?: number | null
   alt_text?: string | null
+  size?: $Enums.image_size
 }
 
 export type product_imageUpdateWithoutProduct_variantInput = {
@@ -647,6 +683,7 @@ export type product_imageUpdateWithoutProduct_variantInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
   product?: Prisma.productUpdateOneRequiredWithoutProduct_imageNestedInput
 }
 
@@ -657,6 +694,7 @@ export type product_imageUncheckedUpdateWithoutProduct_variantInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 export type product_imageUncheckedUpdateManyWithoutProduct_variantInput = {
@@ -666,6 +704,7 @@ export type product_imageUncheckedUpdateManyWithoutProduct_variantInput = {
   type?: Prisma.NullableEnumimage_typeFieldUpdateOperationsInput | $Enums.image_type | null
   ordering?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   alt_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  size?: Prisma.Enumimage_sizeFieldUpdateOperationsInput | $Enums.image_size
 }
 
 
@@ -678,6 +717,7 @@ export type product_imageSelect<ExtArgs extends runtime.Types.Extensions.Interna
   type?: boolean
   ordering?: boolean
   alt_text?: boolean
+  size?: boolean
   product?: boolean | Prisma.productDefaultArgs<ExtArgs>
   product_variant?: boolean | Prisma.product_image$product_variantArgs<ExtArgs>
 }, ExtArgs["result"]["product_image"]>
@@ -690,6 +730,7 @@ export type product_imageSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   type?: boolean
   ordering?: boolean
   alt_text?: boolean
+  size?: boolean
   product?: boolean | Prisma.productDefaultArgs<ExtArgs>
   product_variant?: boolean | Prisma.product_image$product_variantArgs<ExtArgs>
 }, ExtArgs["result"]["product_image"]>
@@ -702,6 +743,7 @@ export type product_imageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   type?: boolean
   ordering?: boolean
   alt_text?: boolean
+  size?: boolean
   product?: boolean | Prisma.productDefaultArgs<ExtArgs>
   product_variant?: boolean | Prisma.product_image$product_variantArgs<ExtArgs>
 }, ExtArgs["result"]["product_image"]>
@@ -714,9 +756,10 @@ export type product_imageSelectScalar = {
   type?: boolean
   ordering?: boolean
   alt_text?: boolean
+  size?: boolean
 }
 
-export type product_imageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "variant_id" | "url" | "type" | "ordering" | "alt_text", ExtArgs["result"]["product_image"]>
+export type product_imageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "variant_id" | "url" | "type" | "ordering" | "alt_text" | "size", ExtArgs["result"]["product_image"]>
 export type product_imageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   product?: boolean | Prisma.productDefaultArgs<ExtArgs>
   product_variant?: boolean | Prisma.product_image$product_variantArgs<ExtArgs>
@@ -744,6 +787,7 @@ export type $product_imagePayload<ExtArgs extends runtime.Types.Extensions.Inter
     type: $Enums.image_type | null
     ordering: number | null
     alt_text: string | null
+    size: $Enums.image_size
   }, ExtArgs["result"]["product_image"]>
   composites: {}
 }
@@ -1176,6 +1220,7 @@ export interface product_imageFieldRefs {
   readonly type: Prisma.FieldRef<"product_image", 'image_type'>
   readonly ordering: Prisma.FieldRef<"product_image", 'Int'>
   readonly alt_text: Prisma.FieldRef<"product_image", 'String'>
+  readonly size: Prisma.FieldRef<"product_image", 'image_size'>
 }
     
 

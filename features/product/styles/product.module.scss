@@ -1,0 +1,19 @@
+.product__gallery {
+    display: grid;
+    gap: 20px;
+    padding: 1rem 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    &__photo {
+        &__large {
+            grid-column: 1/-1;
+        }
+        &__small {
+            grid-column: span 1;
+        }
+    }
+}
+
+.product__image {
+    display: flex;
+    justify-content: center;
+}

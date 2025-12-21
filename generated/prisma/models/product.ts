@@ -44,14 +44,14 @@ export type ProductMinAggregateOutputType = {
   long_description_mdx: string | null
   sku: string | null
   type: $Enums.product_type | null
-  price_cents: number | null
-  promo_price_cents: number | null
   polaroid_url: string | null
   main_image_url: string | null
   category_id: string | null
   published: boolean | null
   created_at: Date | null
   updated_at: Date | null
+  price_cents: number | null
+  promo_price_cents: number | null
 }
 
 export type ProductMaxAggregateOutputType = {
@@ -62,14 +62,14 @@ export type ProductMaxAggregateOutputType = {
   long_description_mdx: string | null
   sku: string | null
   type: $Enums.product_type | null
-  price_cents: number | null
-  promo_price_cents: number | null
   polaroid_url: string | null
   main_image_url: string | null
   category_id: string | null
   published: boolean | null
   created_at: Date | null
   updated_at: Date | null
+  price_cents: number | null
+  promo_price_cents: number | null
 }
 
 export type ProductCountAggregateOutputType = {
@@ -80,9 +80,6 @@ export type ProductCountAggregateOutputType = {
   long_description_mdx: number
   sku: number
   type: number
-  price_cents: number
-  promo_price_cents: number
-  colors: number
   polaroid_url: number
   main_image_url: number
   category_id: number
@@ -90,6 +87,9 @@ export type ProductCountAggregateOutputType = {
   published: number
   created_at: number
   updated_at: number
+  price_cents: number
+  promo_price_cents: number
+  colors: number
   _all: number
 }
 
@@ -112,14 +112,14 @@ export type ProductMinAggregateInputType = {
   long_description_mdx?: true
   sku?: true
   type?: true
-  price_cents?: true
-  promo_price_cents?: true
   polaroid_url?: true
   main_image_url?: true
   category_id?: true
   published?: true
   created_at?: true
   updated_at?: true
+  price_cents?: true
+  promo_price_cents?: true
 }
 
 export type ProductMaxAggregateInputType = {
@@ -130,14 +130,14 @@ export type ProductMaxAggregateInputType = {
   long_description_mdx?: true
   sku?: true
   type?: true
-  price_cents?: true
-  promo_price_cents?: true
   polaroid_url?: true
   main_image_url?: true
   category_id?: true
   published?: true
   created_at?: true
   updated_at?: true
+  price_cents?: true
+  promo_price_cents?: true
 }
 
 export type ProductCountAggregateInputType = {
@@ -148,9 +148,6 @@ export type ProductCountAggregateInputType = {
   long_description_mdx?: true
   sku?: true
   type?: true
-  price_cents?: true
-  promo_price_cents?: true
-  colors?: true
   polaroid_url?: true
   main_image_url?: true
   category_id?: true
@@ -158,6 +155,9 @@ export type ProductCountAggregateInputType = {
   published?: true
   created_at?: true
   updated_at?: true
+  price_cents?: true
+  promo_price_cents?: true
+  colors?: true
   _all?: true
 }
 
@@ -255,9 +255,6 @@ export type ProductGroupByOutputType = {
   long_description_mdx: string | null
   sku: string | null
   type: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents: number | null
-  colors: string[]
   polaroid_url: string | null
   main_image_url: string | null
   category_id: string | null
@@ -265,6 +262,9 @@ export type ProductGroupByOutputType = {
   published: boolean | null
   created_at: Date | null
   updated_at: Date | null
+  price_cents: number
+  promo_price_cents: number | null
+  colors: string[]
   _count: ProductCountAggregateOutputType | null
   _avg: ProductAvgAggregateOutputType | null
   _sum: ProductSumAggregateOutputType | null
@@ -298,9 +298,6 @@ export type productWhereInput = {
   long_description_mdx?: Prisma.StringNullableFilter<"product"> | string | null
   sku?: Prisma.StringNullableFilter<"product"> | string | null
   type?: Prisma.Enumproduct_typeNullableFilter<"product"> | $Enums.product_type | null
-  price_cents?: Prisma.IntFilter<"product"> | number
-  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
-  colors?: Prisma.StringNullableListFilter<"product">
   polaroid_url?: Prisma.StringNullableFilter<"product"> | string | null
   main_image_url?: Prisma.StringNullableFilter<"product"> | string | null
   category_id?: Prisma.UuidNullableFilter<"product"> | string | null
@@ -308,6 +305,9 @@ export type productWhereInput = {
   published?: Prisma.BoolNullableFilter<"product"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
+  price_cents?: Prisma.IntFilter<"product"> | number
+  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
+  colors?: Prisma.StringNullableListFilter<"product">
   asset?: Prisma.AssetListRelationFilter
   order_item?: Prisma.Order_itemListRelationFilter
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.categoryWhereInput> | null
@@ -324,9 +324,6 @@ export type productOrderByWithRelationInput = {
   long_description_mdx?: Prisma.SortOrderInput | Prisma.SortOrder
   sku?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrderInput | Prisma.SortOrder
-  price_cents?: Prisma.SortOrder
-  promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
-  colors?: Prisma.SortOrder
   polaroid_url?: Prisma.SortOrderInput | Prisma.SortOrder
   main_image_url?: Prisma.SortOrderInput | Prisma.SortOrder
   category_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -334,6 +331,9 @@ export type productOrderByWithRelationInput = {
   published?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  price_cents?: Prisma.SortOrder
+  promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
+  colors?: Prisma.SortOrder
   asset?: Prisma.assetOrderByRelationAggregateInput
   order_item?: Prisma.order_itemOrderByRelationAggregateInput
   category?: Prisma.categoryOrderByWithRelationInput
@@ -353,9 +353,6 @@ export type productWhereUniqueInput = Prisma.AtLeast<{
   long_description_mdx?: Prisma.StringNullableFilter<"product"> | string | null
   sku?: Prisma.StringNullableFilter<"product"> | string | null
   type?: Prisma.Enumproduct_typeNullableFilter<"product"> | $Enums.product_type | null
-  price_cents?: Prisma.IntFilter<"product"> | number
-  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
-  colors?: Prisma.StringNullableListFilter<"product">
   polaroid_url?: Prisma.StringNullableFilter<"product"> | string | null
   main_image_url?: Prisma.StringNullableFilter<"product"> | string | null
   category_id?: Prisma.UuidNullableFilter<"product"> | string | null
@@ -363,6 +360,9 @@ export type productWhereUniqueInput = Prisma.AtLeast<{
   published?: Prisma.BoolNullableFilter<"product"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
+  price_cents?: Prisma.IntFilter<"product"> | number
+  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
+  colors?: Prisma.StringNullableListFilter<"product">
   asset?: Prisma.AssetListRelationFilter
   order_item?: Prisma.Order_itemListRelationFilter
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.categoryWhereInput> | null
@@ -379,9 +379,6 @@ export type productOrderByWithAggregationInput = {
   long_description_mdx?: Prisma.SortOrderInput | Prisma.SortOrder
   sku?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrderInput | Prisma.SortOrder
-  price_cents?: Prisma.SortOrder
-  promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
-  colors?: Prisma.SortOrder
   polaroid_url?: Prisma.SortOrderInput | Prisma.SortOrder
   main_image_url?: Prisma.SortOrderInput | Prisma.SortOrder
   category_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -389,6 +386,9 @@ export type productOrderByWithAggregationInput = {
   published?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  price_cents?: Prisma.SortOrder
+  promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
+  colors?: Prisma.SortOrder
   _count?: Prisma.productCountOrderByAggregateInput
   _avg?: Prisma.productAvgOrderByAggregateInput
   _max?: Prisma.productMaxOrderByAggregateInput
@@ -407,9 +407,6 @@ export type productScalarWhereWithAggregatesInput = {
   long_description_mdx?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
   sku?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
   type?: Prisma.Enumproduct_typeNullableWithAggregatesFilter<"product"> | $Enums.product_type | null
-  price_cents?: Prisma.IntWithAggregatesFilter<"product"> | number
-  promo_price_cents?: Prisma.IntNullableWithAggregatesFilter<"product"> | number | null
-  colors?: Prisma.StringNullableListFilter<"product">
   polaroid_url?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
   main_image_url?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
   category_id?: Prisma.UuidNullableWithAggregatesFilter<"product"> | string | null
@@ -417,6 +414,9 @@ export type productScalarWhereWithAggregatesInput = {
   published?: Prisma.BoolNullableWithAggregatesFilter<"product"> | boolean | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"product"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"product"> | Date | string | null
+  price_cents?: Prisma.IntWithAggregatesFilter<"product"> | number
+  promo_price_cents?: Prisma.IntNullableWithAggregatesFilter<"product"> | number | null
+  colors?: Prisma.StringNullableListFilter<"product">
 }
 
 export type productCreateInput = {
@@ -427,15 +427,15 @@ export type productCreateInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -452,9 +452,6 @@ export type productUncheckedCreateInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -462,6 +459,9 @@ export type productUncheckedCreateInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -477,15 +477,15 @@ export type productUpdateInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -502,9 +502,6 @@ export type productUncheckedUpdateInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -512,6 +509,9 @@ export type productUncheckedUpdateInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -527,9 +527,6 @@ export type productCreateManyInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -537,6 +534,9 @@ export type productCreateManyInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
 }
 
 export type productUpdateManyMutationInput = {
@@ -547,15 +547,15 @@ export type productUpdateManyMutationInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
 }
 
 export type productUncheckedUpdateManyInput = {
@@ -566,9 +566,6 @@ export type productUncheckedUpdateManyInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -576,6 +573,9 @@ export type productUncheckedUpdateManyInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
 }
 
 export type ProductNullableScalarRelationFilter = {
@@ -614,9 +614,6 @@ export type productCountOrderByAggregateInput = {
   long_description_mdx?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price_cents?: Prisma.SortOrder
-  promo_price_cents?: Prisma.SortOrder
-  colors?: Prisma.SortOrder
   polaroid_url?: Prisma.SortOrder
   main_image_url?: Prisma.SortOrder
   category_id?: Prisma.SortOrder
@@ -624,6 +621,9 @@ export type productCountOrderByAggregateInput = {
   published?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  price_cents?: Prisma.SortOrder
+  promo_price_cents?: Prisma.SortOrder
+  colors?: Prisma.SortOrder
 }
 
 export type productAvgOrderByAggregateInput = {
@@ -639,14 +639,14 @@ export type productMaxOrderByAggregateInput = {
   long_description_mdx?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price_cents?: Prisma.SortOrder
-  promo_price_cents?: Prisma.SortOrder
   polaroid_url?: Prisma.SortOrder
   main_image_url?: Prisma.SortOrder
   category_id?: Prisma.SortOrder
   published?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  price_cents?: Prisma.SortOrder
+  promo_price_cents?: Prisma.SortOrder
 }
 
 export type productMinOrderByAggregateInput = {
@@ -657,14 +657,14 @@ export type productMinOrderByAggregateInput = {
   long_description_mdx?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price_cents?: Prisma.SortOrder
-  promo_price_cents?: Prisma.SortOrder
   polaroid_url?: Prisma.SortOrder
   main_image_url?: Prisma.SortOrder
   category_id?: Prisma.SortOrder
   published?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  price_cents?: Prisma.SortOrder
+  promo_price_cents?: Prisma.SortOrder
 }
 
 export type productSumOrderByAggregateInput = {
@@ -744,11 +744,11 @@ export type productUpdateOneRequiredWithoutOrder_itemNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.productUpdateToOneWithWhereWithoutOrder_itemInput, Prisma.productUpdateWithoutOrder_itemInput>, Prisma.productUncheckedUpdateWithoutOrder_itemInput>
 }
 
-export type productCreatecolorsInput = {
+export type productCreatetagsInput = {
   set: string[]
 }
 
-export type productCreatetagsInput = {
+export type productCreatecolorsInput = {
   set: string[]
 }
 
@@ -756,12 +756,12 @@ export type NullableEnumproduct_typeFieldUpdateOperationsInput = {
   set?: $Enums.product_type | null
 }
 
-export type productUpdatecolorsInput = {
+export type productUpdatetagsInput = {
   set?: string[]
   push?: string | string[]
 }
 
-export type productUpdatetagsInput = {
+export type productUpdatecolorsInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -816,15 +816,15 @@ export type productCreateWithoutAssetInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -840,9 +840,6 @@ export type productUncheckedCreateWithoutAssetInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -850,6 +847,9 @@ export type productUncheckedCreateWithoutAssetInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -880,15 +880,15 @@ export type productUpdateWithoutAssetInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -904,9 +904,6 @@ export type productUncheckedUpdateWithoutAssetInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -914,6 +911,9 @@ export type productUncheckedUpdateWithoutAssetInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -928,15 +928,15 @@ export type productCreateWithoutCategoryInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -952,15 +952,15 @@ export type productUncheckedCreateWithoutCategoryInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1005,9 +1005,6 @@ export type productScalarWhereInput = {
   long_description_mdx?: Prisma.StringNullableFilter<"product"> | string | null
   sku?: Prisma.StringNullableFilter<"product"> | string | null
   type?: Prisma.Enumproduct_typeNullableFilter<"product"> | $Enums.product_type | null
-  price_cents?: Prisma.IntFilter<"product"> | number
-  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
-  colors?: Prisma.StringNullableListFilter<"product">
   polaroid_url?: Prisma.StringNullableFilter<"product"> | string | null
   main_image_url?: Prisma.StringNullableFilter<"product"> | string | null
   category_id?: Prisma.UuidNullableFilter<"product"> | string | null
@@ -1015,6 +1012,9 @@ export type productScalarWhereInput = {
   published?: Prisma.BoolNullableFilter<"product"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product"> | Date | string | null
+  price_cents?: Prisma.IntFilter<"product"> | number
+  promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
+  colors?: Prisma.StringNullableListFilter<"product">
 }
 
 export type productCreateWithoutOrder_itemInput = {
@@ -1025,15 +1025,15 @@ export type productCreateWithoutOrder_itemInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -1049,9 +1049,6 @@ export type productUncheckedCreateWithoutOrder_itemInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -1059,6 +1056,9 @@ export type productUncheckedCreateWithoutOrder_itemInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -1089,15 +1089,15 @@ export type productUpdateWithoutOrder_itemInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -1113,9 +1113,6 @@ export type productUncheckedUpdateWithoutOrder_itemInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1123,6 +1120,9 @@ export type productUncheckedUpdateWithoutOrder_itemInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -1137,15 +1137,15 @@ export type productCreateWithoutProduct_featureInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1161,9 +1161,6 @@ export type productUncheckedCreateWithoutProduct_featureInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -1171,6 +1168,9 @@ export type productUncheckedCreateWithoutProduct_featureInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -1201,15 +1201,15 @@ export type productUpdateWithoutProduct_featureInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1225,9 +1225,6 @@ export type productUncheckedUpdateWithoutProduct_featureInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1235,6 +1232,9 @@ export type productUncheckedUpdateWithoutProduct_featureInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -1249,15 +1249,15 @@ export type productCreateWithoutProduct_imageInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1273,9 +1273,6 @@ export type productUncheckedCreateWithoutProduct_imageInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -1283,6 +1280,9 @@ export type productUncheckedCreateWithoutProduct_imageInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1313,15 +1313,15 @@ export type productUpdateWithoutProduct_imageInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1337,9 +1337,6 @@ export type productUncheckedUpdateWithoutProduct_imageInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1347,6 +1344,9 @@ export type productUncheckedUpdateWithoutProduct_imageInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1361,15 +1361,15 @@ export type productCreateWithoutProduct_variantInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1385,9 +1385,6 @@ export type productUncheckedCreateWithoutProduct_variantInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   category_id?: string | null
@@ -1395,6 +1392,9 @@ export type productUncheckedCreateWithoutProduct_variantInput = {
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1425,15 +1425,15 @@ export type productUpdateWithoutProduct_variantInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1449,9 +1449,6 @@ export type productUncheckedUpdateWithoutProduct_variantInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1459,6 +1456,9 @@ export type productUncheckedUpdateWithoutProduct_variantInput = {
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1473,15 +1473,15 @@ export type productCreateManyCategoryInput = {
   long_description_mdx?: string | null
   sku?: string | null
   type?: $Enums.product_type | null
-  price_cents: number
-  promo_price_cents?: number | null
-  colors?: Prisma.productCreatecolorsInput | string[]
   polaroid_url?: string | null
   main_image_url?: string | null
   tags?: Prisma.productCreatetagsInput | string[]
   published?: boolean | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  price_cents?: number
+  promo_price_cents?: number | null
+  colors?: Prisma.productCreatecolorsInput | string[]
 }
 
 export type productUpdateWithoutCategoryInput = {
@@ -1492,15 +1492,15 @@ export type productUpdateWithoutCategoryInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -1516,15 +1516,15 @@ export type productUncheckedUpdateWithoutCategoryInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1540,15 +1540,15 @@ export type productUncheckedUpdateManyWithoutCategoryInput = {
   long_description_mdx?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.NullableEnumproduct_typeFieldUpdateOperationsInput | $Enums.product_type | null
-  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
-  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colors?: Prisma.productUpdatecolorsInput | string[]
   polaroid_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   main_image_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.productUpdatetagsInput | string[]
   published?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  price_cents?: Prisma.IntFieldUpdateOperationsInput | number
+  promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  colors?: Prisma.productUpdatecolorsInput | string[]
 }
 
 
@@ -1626,9 +1626,6 @@ export type productSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   long_description_mdx?: boolean
   sku?: boolean
   type?: boolean
-  price_cents?: boolean
-  promo_price_cents?: boolean
-  colors?: boolean
   polaroid_url?: boolean
   main_image_url?: boolean
   category_id?: boolean
@@ -1636,6 +1633,9 @@ export type productSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   published?: boolean
   created_at?: boolean
   updated_at?: boolean
+  price_cents?: boolean
+  promo_price_cents?: boolean
+  colors?: boolean
   asset?: boolean | Prisma.product$assetArgs<ExtArgs>
   order_item?: boolean | Prisma.product$order_itemArgs<ExtArgs>
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
@@ -1653,9 +1653,6 @@ export type productSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   long_description_mdx?: boolean
   sku?: boolean
   type?: boolean
-  price_cents?: boolean
-  promo_price_cents?: boolean
-  colors?: boolean
   polaroid_url?: boolean
   main_image_url?: boolean
   category_id?: boolean
@@ -1663,6 +1660,9 @@ export type productSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   published?: boolean
   created_at?: boolean
   updated_at?: boolean
+  price_cents?: boolean
+  promo_price_cents?: boolean
+  colors?: boolean
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
@@ -1674,9 +1674,6 @@ export type productSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   long_description_mdx?: boolean
   sku?: boolean
   type?: boolean
-  price_cents?: boolean
-  promo_price_cents?: boolean
-  colors?: boolean
   polaroid_url?: boolean
   main_image_url?: boolean
   category_id?: boolean
@@ -1684,6 +1681,9 @@ export type productSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   published?: boolean
   created_at?: boolean
   updated_at?: boolean
+  price_cents?: boolean
+  promo_price_cents?: boolean
+  colors?: boolean
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
@@ -1695,9 +1695,6 @@ export type productSelectScalar = {
   long_description_mdx?: boolean
   sku?: boolean
   type?: boolean
-  price_cents?: boolean
-  promo_price_cents?: boolean
-  colors?: boolean
   polaroid_url?: boolean
   main_image_url?: boolean
   category_id?: boolean
@@ -1705,9 +1702,12 @@ export type productSelectScalar = {
   published?: boolean
   created_at?: boolean
   updated_at?: boolean
+  price_cents?: boolean
+  promo_price_cents?: boolean
+  colors?: boolean
 }
 
-export type productOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "short_description" | "long_description_mdx" | "sku" | "type" | "price_cents" | "promo_price_cents" | "colors" | "polaroid_url" | "main_image_url" | "category_id" | "tags" | "published" | "created_at" | "updated_at", ExtArgs["result"]["product"]>
+export type productOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "short_description" | "long_description_mdx" | "sku" | "type" | "polaroid_url" | "main_image_url" | "category_id" | "tags" | "published" | "created_at" | "updated_at" | "price_cents" | "promo_price_cents" | "colors", ExtArgs["result"]["product"]>
 export type productInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   asset?: boolean | Prisma.product$assetArgs<ExtArgs>
   order_item?: boolean | Prisma.product$order_itemArgs<ExtArgs>
@@ -1742,9 +1742,6 @@ export type $productPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     long_description_mdx: string | null
     sku: string | null
     type: $Enums.product_type | null
-    price_cents: number
-    promo_price_cents: number | null
-    colors: string[]
     polaroid_url: string | null
     main_image_url: string | null
     category_id: string | null
@@ -1752,6 +1749,9 @@ export type $productPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     published: boolean | null
     created_at: Date | null
     updated_at: Date | null
+    price_cents: number
+    promo_price_cents: number | null
+    colors: string[]
   }, ExtArgs["result"]["product"]>
   composites: {}
 }
@@ -2188,9 +2188,6 @@ export interface productFieldRefs {
   readonly long_description_mdx: Prisma.FieldRef<"product", 'String'>
   readonly sku: Prisma.FieldRef<"product", 'String'>
   readonly type: Prisma.FieldRef<"product", 'product_type'>
-  readonly price_cents: Prisma.FieldRef<"product", 'Int'>
-  readonly promo_price_cents: Prisma.FieldRef<"product", 'Int'>
-  readonly colors: Prisma.FieldRef<"product", 'String[]'>
   readonly polaroid_url: Prisma.FieldRef<"product", 'String'>
   readonly main_image_url: Prisma.FieldRef<"product", 'String'>
   readonly category_id: Prisma.FieldRef<"product", 'String'>
@@ -2198,6 +2195,9 @@ export interface productFieldRefs {
   readonly published: Prisma.FieldRef<"product", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"product", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"product", 'DateTime'>
+  readonly price_cents: Prisma.FieldRef<"product", 'Int'>
+  readonly promo_price_cents: Prisma.FieldRef<"product", 'Int'>
+  readonly colors: Prisma.FieldRef<"product", 'String[]'>
 }
     
 

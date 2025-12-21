@@ -200,16 +200,16 @@ export const ProductScalarFieldEnum = {
   long_description_mdx: 'long_description_mdx',
   sku: 'sku',
   type: 'type',
-  price_cents: 'price_cents',
-  promo_price_cents: 'promo_price_cents',
-  colors: 'colors',
   polaroid_url: 'polaroid_url',
   main_image_url: 'main_image_url',
   category_id: 'category_id',
   tags: 'tags',
   published: 'published',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  price_cents: 'price_cents',
+  promo_price_cents: 'promo_price_cents',
+  colors: 'colors'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -236,7 +236,8 @@ export const Product_imageScalarFieldEnum = {
   url: 'url',
   type: 'type',
   ordering: 'ordering',
-  alt_text: 'alt_text'
+  alt_text: 'alt_text',
+  size: 'size'
 } as const
 
 export type Product_imageScalarFieldEnum = (typeof Product_imageScalarFieldEnum)[keyof typeof Product_imageScalarFieldEnum]

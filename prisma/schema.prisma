@@ -108,39 +108,29 @@ model payment {
 }
 
 model product {
-  id                   String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id                   String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name                 String
-  slug                 String        @unique
+  slug                 String            @unique
   short_description    String?
   long_description_mdx String?
   sku                  String?
-  type                 product_type? @default(PHYSICAL)
-
-  // ✅ PRIX
-  price_cents       Int
-  promo_price_cents Int?
-
-  // ✅ COULEURS (hex)
-  colors String[]
-
-  // ✅ IMAGES
-  polaroid_url   String?
-  main_image_url String?
-
-  // ✅ META
-  category_id String?   @db.Uuid
-  tags        String[]
-  published   Boolean?  @default(false)
-  created_at  DateTime? @default(now()) @db.Timestamptz(6)
-  updated_at  DateTime? @default(now()) @db.Timestamptz(6)
-
-  // 🔗 RELATIONS
-  asset           asset[]
-  order_item      order_item[]
-  category        category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  product_feature product_feature[]
-  product_image   product_image[]
-  product_variant product_variant[]
+  type                 product_type?     @default(PHYSICAL)
+  polaroid_url         String?
+  main_image_url       String?
+  category_id          String?           @db.Uuid
+  tags                 String[]
+  published            Boolean?          @default(false)
+  created_at           DateTime?         @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime?         @default(now()) @db.Timestamptz(6)
+  price_cents          Int               @default(0)
+  promo_price_cents    Int?
+  colors               String[]
+  asset                asset[]
+  order_item           order_item[]
+  category             category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  product_feature      product_feature[]
+  product_image        product_image[]
+  product_variant      product_variant[]
 
   @@index([slug], map: "idx_product_slug")
 }
@@ -169,6 +159,7 @@ model product_image {
   type            image_type?      @default(GALLERY)
   ordering        Int?             @default(0)
   alt_text        String?
+  size            image_size       @default(SMALL)
   product         product          @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   product_variant product_variant? @relation(fields: [variant_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
@@ -221,6 +212,11 @@ model tracking {
   order                order            @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([public_tracking_slug], map: "idx_tracking_public_slug")
+}
+
+enum image_size {
+  SMALL
+  LARGE
 }
 
 enum coupon_type {
