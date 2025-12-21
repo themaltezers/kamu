@@ -19,8 +19,20 @@ export default async function Page({ params }: Props) {
     }
 
     return (
-        <main className={styles.product}>
-            <section className={styles.product__tab}>
+        <main
+            className={styles.product}
+            style={{
+                backgroundColor: product.bg_color ?? "#ffffff",
+                color: product.text_color ?? "#000000",
+            }}
+        >
+            <section
+                className={styles.product__tab}
+                style={{
+                    backgroundColor: product.bg_color ?? "#ffffff",
+                    color: product.text_color ?? "#000000",
+                }}
+            >
                 <ProductDetail product={product} />
             </section>
             <section className={styles.product__tab}>

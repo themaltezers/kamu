@@ -61,7 +61,8 @@ h3 {
 }
 p {
     font-size: 14px;
-    list-style: 20px;
+    line-height: 20px;
+    font-family: "Libertinus Serif", sans-serif;
     @media (min-width: 768px) {
         font-size: 15px;
         line-height: 22px;
@@ -71,4 +72,8 @@ p {
         font-size: 16px;
         line-height: 24px;
     }
+}
+
+b {
+    font-weight: bold;
 }

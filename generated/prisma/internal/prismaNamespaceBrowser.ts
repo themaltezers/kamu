@@ -209,7 +209,9 @@ export const ProductScalarFieldEnum = {
   updated_at: 'updated_at',
   price_cents: 'price_cents',
   promo_price_cents: 'promo_price_cents',
-  colors: 'colors'
+  colors: 'colors',
+  bg_color: 'bg_color',
+  text_color: 'text_color'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]

@@ -52,6 +52,8 @@ export type ProductMinAggregateOutputType = {
   updated_at: Date | null
   price_cents: number | null
   promo_price_cents: number | null
+  bg_color: string | null
+  text_color: string | null
 }
 
 export type ProductMaxAggregateOutputType = {
@@ -70,6 +72,8 @@ export type ProductMaxAggregateOutputType = {
   updated_at: Date | null
   price_cents: number | null
   promo_price_cents: number | null
+  bg_color: string | null
+  text_color: string | null
 }
 
 export type ProductCountAggregateOutputType = {
@@ -90,6 +94,8 @@ export type ProductCountAggregateOutputType = {
   price_cents: number
   promo_price_cents: number
   colors: number
+  bg_color: number
+  text_color: number
   _all: number
 }
 
@@ -120,6 +126,8 @@ export type ProductMinAggregateInputType = {
   updated_at?: true
   price_cents?: true
   promo_price_cents?: true
+  bg_color?: true
+  text_color?: true
 }
 
 export type ProductMaxAggregateInputType = {
@@ -138,6 +146,8 @@ export type ProductMaxAggregateInputType = {
   updated_at?: true
   price_cents?: true
   promo_price_cents?: true
+  bg_color?: true
+  text_color?: true
 }
 
 export type ProductCountAggregateInputType = {
@@ -158,6 +168,8 @@ export type ProductCountAggregateInputType = {
   price_cents?: true
   promo_price_cents?: true
   colors?: true
+  bg_color?: true
+  text_color?: true
   _all?: true
 }
 
@@ -265,6 +277,8 @@ export type ProductGroupByOutputType = {
   price_cents: number
   promo_price_cents: number | null
   colors: string[]
+  bg_color: string | null
+  text_color: string | null
   _count: ProductCountAggregateOutputType | null
   _avg: ProductAvgAggregateOutputType | null
   _sum: ProductSumAggregateOutputType | null
@@ -308,6 +322,8 @@ export type productWhereInput = {
   price_cents?: Prisma.IntFilter<"product"> | number
   promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
   colors?: Prisma.StringNullableListFilter<"product">
+  bg_color?: Prisma.StringNullableFilter<"product"> | string | null
+  text_color?: Prisma.StringNullableFilter<"product"> | string | null
   asset?: Prisma.AssetListRelationFilter
   order_item?: Prisma.Order_itemListRelationFilter
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.categoryWhereInput> | null
@@ -334,6 +350,8 @@ export type productOrderByWithRelationInput = {
   price_cents?: Prisma.SortOrder
   promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
   colors?: Prisma.SortOrder
+  bg_color?: Prisma.SortOrderInput | Prisma.SortOrder
+  text_color?: Prisma.SortOrderInput | Prisma.SortOrder
   asset?: Prisma.assetOrderByRelationAggregateInput
   order_item?: Prisma.order_itemOrderByRelationAggregateInput
   category?: Prisma.categoryOrderByWithRelationInput
@@ -363,6 +381,8 @@ export type productWhereUniqueInput = Prisma.AtLeast<{
   price_cents?: Prisma.IntFilter<"product"> | number
   promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
   colors?: Prisma.StringNullableListFilter<"product">
+  bg_color?: Prisma.StringNullableFilter<"product"> | string | null
+  text_color?: Prisma.StringNullableFilter<"product"> | string | null
   asset?: Prisma.AssetListRelationFilter
   order_item?: Prisma.Order_itemListRelationFilter
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.categoryWhereInput> | null
@@ -389,6 +409,8 @@ export type productOrderByWithAggregationInput = {
   price_cents?: Prisma.SortOrder
   promo_price_cents?: Prisma.SortOrderInput | Prisma.SortOrder
   colors?: Prisma.SortOrder
+  bg_color?: Prisma.SortOrderInput | Prisma.SortOrder
+  text_color?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.productCountOrderByAggregateInput
   _avg?: Prisma.productAvgOrderByAggregateInput
   _max?: Prisma.productMaxOrderByAggregateInput
@@ -417,6 +439,8 @@ export type productScalarWhereWithAggregatesInput = {
   price_cents?: Prisma.IntWithAggregatesFilter<"product"> | number
   promo_price_cents?: Prisma.IntNullableWithAggregatesFilter<"product"> | number | null
   colors?: Prisma.StringNullableListFilter<"product">
+  bg_color?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
+  text_color?: Prisma.StringNullableWithAggregatesFilter<"product"> | string | null
 }
 
 export type productCreateInput = {
@@ -436,6 +460,8 @@ export type productCreateInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -462,6 +488,8 @@ export type productUncheckedCreateInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -486,6 +514,8 @@ export type productUpdateInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -512,6 +542,8 @@ export type productUncheckedUpdateInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -537,6 +569,8 @@ export type productCreateManyInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
 }
 
 export type productUpdateManyMutationInput = {
@@ -556,6 +590,8 @@ export type productUpdateManyMutationInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type productUncheckedUpdateManyInput = {
@@ -576,6 +612,8 @@ export type productUncheckedUpdateManyInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProductNullableScalarRelationFilter = {
@@ -624,6 +662,8 @@ export type productCountOrderByAggregateInput = {
   price_cents?: Prisma.SortOrder
   promo_price_cents?: Prisma.SortOrder
   colors?: Prisma.SortOrder
+  bg_color?: Prisma.SortOrder
+  text_color?: Prisma.SortOrder
 }
 
 export type productAvgOrderByAggregateInput = {
@@ -647,6 +687,8 @@ export type productMaxOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
   price_cents?: Prisma.SortOrder
   promo_price_cents?: Prisma.SortOrder
+  bg_color?: Prisma.SortOrder
+  text_color?: Prisma.SortOrder
 }
 
 export type productMinOrderByAggregateInput = {
@@ -665,6 +707,8 @@ export type productMinOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
   price_cents?: Prisma.SortOrder
   promo_price_cents?: Prisma.SortOrder
+  bg_color?: Prisma.SortOrder
+  text_color?: Prisma.SortOrder
 }
 
 export type productSumOrderByAggregateInput = {
@@ -825,6 +869,8 @@ export type productCreateWithoutAssetInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -850,6 +896,8 @@ export type productUncheckedCreateWithoutAssetInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -889,6 +937,8 @@ export type productUpdateWithoutAssetInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -914,6 +964,8 @@ export type productUncheckedUpdateWithoutAssetInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -937,6 +989,8 @@ export type productCreateWithoutCategoryInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -961,6 +1015,8 @@ export type productUncheckedCreateWithoutCategoryInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1015,6 +1071,8 @@ export type productScalarWhereInput = {
   price_cents?: Prisma.IntFilter<"product"> | number
   promo_price_cents?: Prisma.IntNullableFilter<"product"> | number | null
   colors?: Prisma.StringNullableListFilter<"product">
+  bg_color?: Prisma.StringNullableFilter<"product"> | string | null
+  text_color?: Prisma.StringNullableFilter<"product"> | string | null
 }
 
 export type productCreateWithoutOrder_itemInput = {
@@ -1034,6 +1092,8 @@ export type productCreateWithoutOrder_itemInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
   product_feature?: Prisma.product_featureCreateNestedManyWithoutProductInput
@@ -1059,6 +1119,8 @@ export type productUncheckedCreateWithoutOrder_itemInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -1098,6 +1160,8 @@ export type productUpdateWithoutOrder_itemInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -1123,6 +1187,8 @@ export type productUncheckedUpdateWithoutOrder_itemInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -1146,6 +1212,8 @@ export type productCreateWithoutProduct_featureInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1171,6 +1239,8 @@ export type productUncheckedCreateWithoutProduct_featureInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_image?: Prisma.product_imageUncheckedCreateNestedManyWithoutProductInput
@@ -1210,6 +1280,8 @@ export type productUpdateWithoutProduct_featureInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1235,6 +1307,8 @@ export type productUncheckedUpdateWithoutProduct_featureInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_image?: Prisma.product_imageUncheckedUpdateManyWithoutProductNestedInput
@@ -1258,6 +1332,8 @@ export type productCreateWithoutProduct_imageInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1283,6 +1359,8 @@ export type productUncheckedCreateWithoutProduct_imageInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1322,6 +1400,8 @@ export type productUpdateWithoutProduct_imageInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1347,6 +1427,8 @@ export type productUncheckedUpdateWithoutProduct_imageInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1370,6 +1452,8 @@ export type productCreateWithoutProduct_variantInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemCreateNestedManyWithoutProductInput
   category?: Prisma.categoryCreateNestedOneWithoutProductInput
@@ -1395,6 +1479,8 @@ export type productUncheckedCreateWithoutProduct_variantInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
   asset?: Prisma.assetUncheckedCreateNestedManyWithoutProductInput
   order_item?: Prisma.order_itemUncheckedCreateNestedManyWithoutProductInput
   product_feature?: Prisma.product_featureUncheckedCreateNestedManyWithoutProductInput
@@ -1434,6 +1520,8 @@ export type productUpdateWithoutProduct_variantInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   category?: Prisma.categoryUpdateOneWithoutProductNestedInput
@@ -1459,6 +1547,8 @@ export type productUncheckedUpdateWithoutProduct_variantInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1482,6 +1572,8 @@ export type productCreateManyCategoryInput = {
   price_cents?: number
   promo_price_cents?: number | null
   colors?: Prisma.productCreatecolorsInput | string[]
+  bg_color?: string | null
+  text_color?: string | null
 }
 
 export type productUpdateWithoutCategoryInput = {
@@ -1501,6 +1593,8 @@ export type productUpdateWithoutCategoryInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUpdateManyWithoutProductNestedInput
@@ -1525,6 +1619,8 @@ export type productUncheckedUpdateWithoutCategoryInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   asset?: Prisma.assetUncheckedUpdateManyWithoutProductNestedInput
   order_item?: Prisma.order_itemUncheckedUpdateManyWithoutProductNestedInput
   product_feature?: Prisma.product_featureUncheckedUpdateManyWithoutProductNestedInput
@@ -1549,6 +1645,8 @@ export type productUncheckedUpdateManyWithoutCategoryInput = {
   price_cents?: Prisma.IntFieldUpdateOperationsInput | number
   promo_price_cents?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   colors?: Prisma.productUpdatecolorsInput | string[]
+  bg_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  text_color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -1636,6 +1734,8 @@ export type productSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   price_cents?: boolean
   promo_price_cents?: boolean
   colors?: boolean
+  bg_color?: boolean
+  text_color?: boolean
   asset?: boolean | Prisma.product$assetArgs<ExtArgs>
   order_item?: boolean | Prisma.product$order_itemArgs<ExtArgs>
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
@@ -1663,6 +1763,8 @@ export type productSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   price_cents?: boolean
   promo_price_cents?: boolean
   colors?: boolean
+  bg_color?: boolean
+  text_color?: boolean
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
@@ -1684,6 +1786,8 @@ export type productSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   price_cents?: boolean
   promo_price_cents?: boolean
   colors?: boolean
+  bg_color?: boolean
+  text_color?: boolean
   category?: boolean | Prisma.product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
@@ -1705,9 +1809,11 @@ export type productSelectScalar = {
   price_cents?: boolean
   promo_price_cents?: boolean
   colors?: boolean
+  bg_color?: boolean
+  text_color?: boolean
 }
 
-export type productOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "short_description" | "long_description_mdx" | "sku" | "type" | "polaroid_url" | "main_image_url" | "category_id" | "tags" | "published" | "created_at" | "updated_at" | "price_cents" | "promo_price_cents" | "colors", ExtArgs["result"]["product"]>
+export type productOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "short_description" | "long_description_mdx" | "sku" | "type" | "polaroid_url" | "main_image_url" | "category_id" | "tags" | "published" | "created_at" | "updated_at" | "price_cents" | "promo_price_cents" | "colors" | "bg_color" | "text_color", ExtArgs["result"]["product"]>
 export type productInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   asset?: boolean | Prisma.product$assetArgs<ExtArgs>
   order_item?: boolean | Prisma.product$order_itemArgs<ExtArgs>
@@ -1752,6 +1858,8 @@ export type $productPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     price_cents: number
     promo_price_cents: number | null
     colors: string[]
+    bg_color: string | null
+    text_color: string | null
   }, ExtArgs["result"]["product"]>
   composites: {}
 }
@@ -2198,6 +2306,8 @@ export interface productFieldRefs {
   readonly price_cents: Prisma.FieldRef<"product", 'Int'>
   readonly promo_price_cents: Prisma.FieldRef<"product", 'Int'>
   readonly colors: Prisma.FieldRef<"product", 'String[]'>
+  readonly bg_color: Prisma.FieldRef<"product", 'String'>
+  readonly text_color: Prisma.FieldRef<"product", 'String'>
 }
     
 

@@ -125,6 +125,8 @@ model product {
   price_cents          Int               @default(0)
   promo_price_cents    Int?
   colors               String[]
+  bg_color             String?           @default("#ffffff")
+  text_color           String?           @default("#000000")
   asset                asset[]
   order_item           order_item[]
   category             category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)

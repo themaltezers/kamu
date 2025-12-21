@@ -17,3 +17,11 @@
     display: flex;
     justify-content: center;
 }
+
+.product__definition {
+    margin-bottom: 8px;
+    &__title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}

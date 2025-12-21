@@ -6,6 +6,7 @@ import Intercalaire from "./Intercalaire";
 import { Product } from "@/features/product/types/product";
 import { useProductStore } from "@/features/product/stores/useProductStore";
 import { useRouter, useSearchParams } from "next/navigation";
+import ProductDefinition from "./ProductDefinition";
 
 type Props = {
     product: Product;
@@ -71,7 +72,7 @@ const ProductDetail = ({ product }: Props) => {
                         <li>color</li>
                     </ul>
                 </div>
-
+                <ProductDefinition />
                 <div className={styles.product__details__purchase}>
                     <h1 className={styles.product__price}>
                         {product.price_cents} €

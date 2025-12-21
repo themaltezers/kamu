@@ -17,10 +17,14 @@ export type Product = {
     created_at: string;
     updated_at: string;
 
+    // nouvelles propriétés
+    bg_color?: string | null;
+    text_color?: string | null;
+
     asset?: unknown[];
     product_variant?: unknown[];
     product_feature?: unknown[];
-    product_image?: ProductImage[]; // <-- ici
+    product_image?: unknown[];
 };
 
 export type ProductSummary = {
