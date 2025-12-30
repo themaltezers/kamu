@@ -108,31 +108,30 @@ model payment {
 }
 
 model product {
-  id                   String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name                 String
-  slug                 String            @unique
-  short_description    String?
-  long_description_mdx String?
-  sku                  String?
-  type                 product_type?     @default(PHYSICAL)
-  polaroid_url         String?
-  main_image_url       String?
-  category_id          String?           @db.Uuid
-  tags                 String[]
-  published            Boolean?          @default(false)
-  created_at           DateTime?         @default(now()) @db.Timestamptz(6)
-  updated_at           DateTime?         @default(now()) @db.Timestamptz(6)
-  price_cents          Int               @default(0)
-  promo_price_cents    Int?
-  colors               String[]
-  bg_color             String?           @default("#ffffff")
-  text_color           String?           @default("#000000")
-  asset                asset[]
-  order_item           order_item[]
-  category             category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  product_feature      product_feature[]
-  product_image        product_image[]
-  product_variant      product_variant[]
+  id                String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name              String
+  slug              String            @unique
+  sku               String?
+  type              product_type?     @default(PHYSICAL)
+  polaroid_url      String?
+  main_image_url    String?
+  category_id       String?           @db.Uuid
+  tags              String[]
+  published         Boolean?          @default(false)
+  created_at        DateTime?         @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime?         @default(now()) @db.Timestamptz(6)
+  price_cents       Int               @default(0)
+  promo_price_cents Int?
+  colors            String[]
+  bg_color          String?           @default("#ffffff")
+  text_color        String?           @default("#000000")
+  definitions       Json?
+  asset             asset[]
+  order_item        order_item[]
+  category          category?         @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  product_feature   product_feature[]
+  product_image     product_image[]
+  product_variant   product_variant[]
 
   @@index([slug], map: "idx_product_slug")
 }

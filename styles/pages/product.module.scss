@@ -1,22 +1,5 @@
-// .product {
-//     columns: 340px;
-//     gap: 20px;
-//     height: 100%;
-//     &__tab {
-//         height: 100%;
-//     }
-//     &__price {
-//         font-weight: 700;
-//         font-size: 54px;
-//     }
-// }
-
 .product {
     padding-bottom: calc(var(--product-detail-height) + 20px);
-    &__selector {
-        display: flex;
-        width: 100%;
-    }
     &__tab {
         &:first-child {
             position: fixed;
@@ -32,12 +15,12 @@
     display: flex;
     padding: 1rem;
     gap: 1rem;
-    border-bottom: 1px solid grey;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
 .intercalaire {
-    border-top: 1px solid grey;
+    border-top: 1px solid white;
     &:first-child {
         width: 48px;
     }
@@ -52,44 +35,45 @@
     }
 }
 
-.product__details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 20px;
+/* Tablette portrait */
+@media (min-width: 768px) {
+    .product {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 80%;
+        &__tab {
+            height: 100%; /* chaque section peut s'adapter à son contenu */
+            border: 1px solid;
+            overflow: scroll; /* laisse chaque tab scroller naturellement si nécessaire */
+            &:first-child {
+                position: static;
+                width: 100%;
+                background: none;
+                padding: 0;
+            }
+        }
 
-    width: 100%;
-    box-sizing: border-box;
-
-    &__container {
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    &__definition {
-        margin-bottom: 8px;
-        &__title {
-            font-size: 1rem;
-            font-weight: bold;
+        &__price {
+            font-weight: 700;
+            font-size: 36px; /* un peu plus petit que desktop */
         }
     }
-    &__purchase {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        // padding: 20px 0;
-    }
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+    .intercalaire {
+        display: none;
     }
 }
-.product__cta {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -4%;
-    padding: 8px 16px;
-    border: 1px solid black;
+
+@media (min-width: 1024px) {
+    .product {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        &__price {
+            font-weight: 700;
+            font-size: 54px;
+        }
+    }
 }

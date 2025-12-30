@@ -1,9 +1,18 @@
+// features/product/types/product.ts
+export type DefinitionPart = {
+    text: string;
+    bold?: boolean;
+    italic?: boolean;
+    color?: string;
+};
+
+export type Definition = DefinitionPart[];
+
 export type Product = {
     id: string;
     name: string;
     slug: string;
-    short_description?: string | null;
-    long_description_mdx?: string | null;
+    definitions?: Definition[]; // <- nouveau champ
     sku?: string | null;
     type: "PHYSICAL" | "DIGITAL";
     price_cents: number;
@@ -24,7 +33,7 @@ export type Product = {
     asset?: unknown[];
     product_variant?: unknown[];
     product_feature?: unknown[];
-    product_image?: unknown[];
+    product_image?: ProductImage[];
 };
 
 export type ProductSummary = {
@@ -40,7 +49,7 @@ export type ProductImage = {
     product_id: string;
     variant_id?: string | null;
     url: string;
-    type: "GALLERY" | "OTHER";
+    type: "GALLERY" | "PACKSHOT" | "MANNEQUIN" | "OTHER"; // ajout des types manquants
     ordering?: number | null;
     alt_text?: string | null;
     size: "SMALL" | "MEDIUM" | "LARGE";

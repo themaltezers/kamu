@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import "@/styles/globals.scss";
+import type { Metadata } from "next";
 import { Playfair_Display, Libertinus_Serif } from "next/font/google";
 
 // Import Google Fonts
@@ -30,7 +30,22 @@ export default function RootLayout({
             lang="fr"
             className={`${playfair.className} ${libertinus.className}`}
         >
-            <body>{children}</body>
+            <body>
+                <div
+                    style={{
+                        position: "fixed",
+                        top: "0",
+                        padding: "1rem",
+                        right: "0",
+                        backgroundColor: "red",
+
+                        zIndex: 1000,
+                    }}
+                >
+                    t
+                </div>
+                {children}
+            </body>
         </html>
     );
 }

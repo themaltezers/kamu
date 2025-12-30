@@ -1,8 +1,8 @@
 import styles from "@/styles/pages/product.module.scss";
-import ProductDetail from "@/features/product/component/ProductDetail";
-import ProductView from "@/features/product/component/ProductView";
+
 import { Product } from "@/features/product/types/product";
 import { fetchProduct as apiFetchProduct } from "@/features/product/api/product.api";
+import ProductShell from "@/features/product/component/ProductShell";
 
 type Props = {
     params: { slug: string };
@@ -24,20 +24,10 @@ export default async function Page({ params }: Props) {
             style={{
                 backgroundColor: product.bg_color ?? "#ffffff",
                 color: product.text_color ?? "#000000",
+                minHeight: "100%",
             }}
         >
-            <section
-                className={styles.product__tab}
-                style={{
-                    backgroundColor: product.bg_color ?? "#ffffff",
-                    color: product.text_color ?? "#000000",
-                }}
-            >
-                <ProductDetail product={product} />
-            </section>
-            <section className={styles.product__tab}>
-                <ProductView product={product} />
-            </section>
+            <ProductShell product={product} />
         </main>
     );
 }

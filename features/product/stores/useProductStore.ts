@@ -17,6 +17,8 @@ type ProductStore = {
     loading: boolean;
 
     productsBySlug: Record<string, Product>;
+    loadingBySlug: Record<string, boolean>;
+    getProduct: (slug: string) => Product | undefined;
     fetchProduct: (slug: string) => Promise<Product | null>;
 };
 
@@ -44,16 +46,34 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     },
 
     productsBySlug: {},
-    fetchProduct: async (slug: string) => {
-        const { productsBySlug } = get();
-        if (productsBySlug[slug]) return productsBySlug[slug];
+    loadingBySlug: {},
 
-        const product = await apiFetchProduct(slug); // <-- utilisation de l'API centralisée
-        if (product) {
-            set({
-                productsBySlug: { ...get().productsBySlug, [slug]: product },
-            });
+    getProduct: (slug: string) => get().productsBySlug[slug],
+
+    fetchProduct: async (slug: string) => {
+        const { productsBySlug, loadingBySlug } = get();
+
+        if (productsBySlug[slug]) return productsBySlug[slug];
+        if (loadingBySlug[slug]) return null; // déjà en cours de fetch
+
+        set({ loadingBySlug: { ...loadingBySlug, [slug]: true } });
+
+        try {
+            const product = await apiFetchProduct(slug);
+            if (product) {
+                set({
+                    productsBySlug: {
+                        ...get().productsBySlug,
+                        [slug]: product,
+                    },
+                });
+            }
+            return product;
+        } catch (err) {
+            console.error("Erreur fetch product:", err);
+            return null;
+        } finally {
+            set({ loadingBySlug: { ...get().loadingBySlug, [slug]: false } });
         }
-        return product;
     },
 }));

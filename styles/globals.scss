@@ -4,7 +4,6 @@ body {
     @include mixins.full__vp;
 
     @media (min-width: 768px) {
-        padding: 20px;
         box-sizing: border-box;
     }
 }
@@ -76,4 +75,10 @@ p {
 
 b {
     font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
 }

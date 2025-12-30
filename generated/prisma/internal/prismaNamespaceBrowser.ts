@@ -196,8 +196,6 @@ export const ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
   slug: 'slug',
-  short_description: 'short_description',
-  long_description_mdx: 'long_description_mdx',
   sku: 'sku',
   type: 'type',
   polaroid_url: 'polaroid_url',
@@ -211,7 +209,8 @@ export const ProductScalarFieldEnum = {
   promo_price_cents: 'promo_price_cents',
   colors: 'colors',
   bg_color: 'bg_color',
-  text_color: 'text_color'
+  text_color: 'text_color',
+  definitions: 'definitions'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]

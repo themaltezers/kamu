@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "@/features/product/styles/productFeatures.module.scss";
 import Image from "next/image";
 
