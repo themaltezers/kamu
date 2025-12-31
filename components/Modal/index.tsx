@@ -52,7 +52,7 @@ export default function Modal({
 
     return (
         <div ref={overlayRef} className={styles.modal}>
-            <div ref={modalRef}>
+            <div ref={modalRef} className={styles.modal__content}>
                 {!disableClose && (
                     <div
                         className={styles.modal__close__container}

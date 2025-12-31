@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useProductStore } from "@/features/product/stores/useProductStore";
 import { Product } from "@/features/product/types/product";
 import ProductGallery from "@/features/product/component/ProductGallery";
@@ -12,12 +11,6 @@ type Props = {
 
 const ProductView = ({ product }: Props) => {
     const active = useProductStore((state) => state.active);
-    const setActive = useProductStore((state) => state.setActive);
-
-    // Force la vue par défaut sur "produits" au chargement
-    useEffect(() => {
-        setActive("produits");
-    }, [setActive]);
 
     const views: Record<string, React.JSX.Element> = {
         produits: (
@@ -34,7 +27,7 @@ const ProductView = ({ product }: Props) => {
         ),
     };
 
-    return <>{views[active]}</>;
+    return <>{views[active] ?? views.produits}</>;
 };
 
 export default ProductView;

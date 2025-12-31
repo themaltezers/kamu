@@ -1,10 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import styles from "@/features/product/styles/productFeatures.module.scss";
 import Image from "next/image";
 import { Product, ProductImage } from "@/features/product/types/product";
-import { CarouselModal } from "@/components/Modal/CarouselModal";
 import { useModalStore } from "@/stores/useModalStore";
 
 type Props = {
@@ -29,7 +28,7 @@ export default function ProductGallery({ product, type }: Props) {
     return (
         <>
             <div className={styles.product__gallery}>
-                {images.map((img) => {
+                {images.map((img, index) => {
                     const isLarge =
                         (img.size ?? "SMALL").toUpperCase() === "LARGE";
 
@@ -43,7 +42,8 @@ export default function ProductGallery({ product, type }: Props) {
                             }
                             style={{ cursor: "pointer" }}
                             onClick={() => {
-                                openModal("image-carousel", img.ordering); // puis on ouvre la modal
+                                openModal("image-carousel", img.ordering ?? 0); // puis on ouvre la modal
+                                console.log(img.ordering, "ouvre");
                             }}
                         >
                             <Image
@@ -62,13 +62,6 @@ export default function ProductGallery({ product, type }: Props) {
                     );
                 })}
             </div>
-
-            {/* Modal Carousel */}
-            {/* <CarouselModal
-                ordering={ordering}
-                id="image-carousel"
-                productImages={product.product_image}
-            /> */}
         </>
     );
 }

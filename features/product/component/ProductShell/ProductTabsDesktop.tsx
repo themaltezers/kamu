@@ -5,6 +5,8 @@ import ProductImage from "@/features/product/component/ProductImage";
 import ProductGallery from "@/features/product/component/ProductGallery";
 
 export default function ProductTabsDesktop({ product }: { product: Product }) {
+    console.log(product.product_image, "images desktop");
+
     return (
         <>
             {" "}
