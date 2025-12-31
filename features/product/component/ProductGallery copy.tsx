@@ -23,6 +23,9 @@ export default function ProductGallery({ product, type }: Props) {
 
     const openModal = useModalStore((s) => s.openModal);
 
+    // id de l'image sur laquelle on a cliqué
+    const [startId, setStartId] = useState<string | undefined>(undefined);
+
     if (!images.length)
         return <p>Pas d&apos;images {type ? `(${type})` : ""}</p>;
 
@@ -43,7 +46,9 @@ export default function ProductGallery({ product, type }: Props) {
                             }
                             style={{ cursor: "pointer" }}
                             onClick={() => {
-                                openModal("image-carousel", img.ordering); // puis on ouvre la modal
+                                setStartId(img.id); // on stocke l'image cliquée
+                                openModal("image-carousel"); // puis on ouvre la modal
+                                console.log("click", img.ordering);
                             }}
                         >
                             <Image
@@ -63,12 +68,13 @@ export default function ProductGallery({ product, type }: Props) {
                 })}
             </div>
 
-            {/* Modal Carousel */}
-            {/* <CarouselModal
-                ordering={ordering}
+            {/* Modal qui récupère toutes les images du store */}
+
+            <CarouselModal
+                productSlug={product.slug}
                 id="image-carousel"
-                productImages={product.product_image}
-            /> */}
+                startId={startId}
+            />
         </>
     );
 }

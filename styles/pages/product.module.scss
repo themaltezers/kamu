@@ -47,7 +47,7 @@
         height: 80%;
         &__tab {
             height: 100%; /* chaque section peut s'adapter à son contenu */
-            border: 1px solid;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             overflow: scroll; /* laisse chaque tab scroller naturellement si nécessaire */
             &:first-child {
                 position: static;

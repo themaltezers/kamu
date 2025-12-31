@@ -42,7 +42,7 @@ export default function RootLayout({
                         zIndex: 1000,
                     }}
                 >
-                    t
+                    ☰
                 </div>
                 {children}
             </body>

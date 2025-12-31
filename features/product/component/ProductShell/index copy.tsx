@@ -2,10 +2,10 @@
 
 import { Product } from "@/features/product/types/product";
 import { useMediaQuery } from "react-responsive";
+
 import ProductTabsMobile from "@/features/product/component/ProductShell/ProductTabsMobile";
 import ProductTabsDesktop from "@/features/product/component/ProductShell/ProductTabsDesktop";
 import ProductTabsTablet from "@/features/product/component/ProductShell/ProductTabsTablet";
-import { CarouselModal } from "@/components/Modal/CarouselModal";
 
 type Props = {
     product: Product;
@@ -17,21 +17,14 @@ export default function ProductShell({ product }: Props) {
         query: "(min-width: 768px) and (max-width: 1023px)",
     });
 
-    const tabsProps = {
-        product,
-    };
+    if (isDesktop) return <ProductTabsDesktop product={product} />;
+    if (isTablet) return <ProductTabsTablet product={product} />;
 
-    return (
-        <>
-            {isDesktop && <ProductTabsDesktop {...tabsProps} />}
-            {isTablet && <ProductTabsTablet {...tabsProps} />}
-            {!isDesktop && !isTablet && <ProductTabsMobile {...tabsProps} />}
-
-            {/* Modal unique pour toutes les galleries */}
-            <CarouselModal
-                id="image-carousel"
-                productImages={product.product_image}
-            />
-        </>
-    );
+    return <ProductTabsMobile product={product} />;
 }
+
+<CarouselModal
+    id="image-carousel"
+    ordering={ordering}
+    productImages={product.product_image}
+/>;

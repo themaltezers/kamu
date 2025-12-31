@@ -5,6 +5,7 @@
     right: 0;
     bottom: 0;
     background: rgb(0, 0, 0);
+    color: white;
     @include mixins.flex__center;
     z-index: 1000;
     &__content {
